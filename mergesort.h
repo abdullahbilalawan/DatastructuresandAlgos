@@ -49,6 +49,7 @@ void merge(int*A,int*L,int*R,int leftcount,int rightcount){
 void merge_sort(int *A,int n){
 
     int mid,i, *L, *R;
+    mid = n/2;
 
 
     if(n<2){

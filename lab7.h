@@ -28,23 +28,26 @@ public:
     unsigned long long int iterative(unsigned long long int n) {
 
         if (n < 1) {
-            return n;
+            return 1;
         }
 
 
-        unsigned long long int fib = 1;
+        unsigned long long int i = 0;
         unsigned long long int prev_fiv = 1;
-//        unsigned long long int z = 0;
+        unsigned long long int result = 1;
 
 
-        for (unsigned long long int i = 2; i <= n; i++) {
-            unsigned long long int temp = fib;
-            fib+= prev_fiv;
-            prev_fiv= temp;
-
+        while (i<n-2){
+            int temp=result;
+            result=result+prev_fiv;
+            prev_fiv=temp;
+            i++;
 
         }
-        return fib;
+
+
+
+        return result;
 
 
     }
@@ -77,7 +80,7 @@ public:
         if(n==0){
             return 1;
         }
-        unsigned long long int fact= 1,i;
+        unsigned long long int fact= 1;int i;
 
         for(i=1;i<=n;i++){
 
@@ -91,6 +94,12 @@ public:
 
 };
 
+void test(){
+    Factorial ff;
+    int fab1 =ff.iterarive(6);
+    int fab2 = ff.recursive(6);
+    cout<<fab1<<"   "<<fab2<<endl;
+}
 
 
 class Time_Operations{
@@ -98,7 +107,7 @@ class Time_Operations{
 public:
 
     Fabbonacci fabbonacci;
-    Factorial factorial;
+    Factorial fac;
 
 
     unsigned long long int input(){
@@ -121,7 +130,7 @@ public:
 
 
 
-//        clock_t startTime = clock();
+//        clock_t startTime ;
 
         high_resolution_clock::time_point t1 = high_resolution_clock::now(); /// Start time
 
@@ -129,7 +138,7 @@ public:
         unsigned long long int fab_r_result = fabbonacci.recursive(n);
         cout<<"value of fab"  <<fab_r_result<<endl;
 
-//        clock_t end_time = (clock() -startTime) /CLOCKS_PER_SEC;
+//        clock_t end_tim;
 
         high_resolution_clock::time_point t2 = high_resolution_clock::now(); /// End time
         auto duration = duration_cast<microseconds>( t2 - t1 ).count(); /// To microseconds
@@ -166,25 +175,31 @@ public:
         cout<<"====================================TIME COMPARISON FACTORIAL=============================="<<endl;
 
 
-        cout<<" value of n is"<< n;
+        cout<<" value of n is"<< n<<endl;
 
 
 
-        clock_t startTime = clock();
-
-        unsigned long long int fac_r_result = factorial.recursive(n);
-
-        clock_t end_time = clock() -startTime;
-
-        cout<<"   TIme for factorial recursive is    " << end_time;
-        clock_t startTime2 = clock();
-
-        unsigned long long int fab_i_result = factorial.iterarive(n);
-
-        clock_t end_time2 = clock() -startTime2;
+//        clock_t startTime = clock();
+        high_resolution_clock::time_point t6 = high_resolution_clock::now(); /// Start time
 
 
-        cout<<"    TIme for factorial iterative  is    " << end_time2<< endl;
+        unsigned long long int fac_r_result = fac.recursive(n);
+        cout<<fac_r_result;
+        high_resolution_clock::time_point t7 = high_resolution_clock::now(); /// End time
+
+        auto duration_4 = duration_cast<nanoseconds>( t7 - t6 ).count(); /// To microseconds
+        cout << "time for recursive  factorial " << static_cast<double>(duration_4)<< " nanoseconds."<<endl;
+
+
+        high_resolution_clock::time_point t8 = high_resolution_clock::now(); /// Start time
+
+        unsigned long long int fab_i_result = fac.iterarive(n);
+
+        high_resolution_clock::time_point t9 = high_resolution_clock::now(); /// End time
+        cout<<"factorial Value: "<<fab_i_result <<endl;
+
+        auto duration_5 = duration_cast<nanoseconds>( t9 - t8 ).count(); /// To microseconds
+        cout << "time for iterative  factorial " << static_cast<double>(duration_5)<< " nanoseconds."<<endl;
 
 
 
@@ -212,19 +227,13 @@ void  interface(){
     unsigned long long int count_1 =0;
 
 
-    while (count_0<4){
-        unsigned long long int n=oper.input();
-        oper.fabbonacci_evaluation(n);
-        count_0++;
 
 
-    }
-
-    while (count_1<5){
-        unsigned long long int n=oper.input();
-        oper.factorial_evaluation(n);
-        count_1++;
-
-
-    }
+//    while (count_1<5){
+//        unsigned long long int n=oper.input();
+//        oper.factorial_evaluation(n);
+//        count_1++;
+//
+//
+//    }
 }

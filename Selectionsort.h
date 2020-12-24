@@ -20,9 +20,10 @@
  * */
 
 #include <iostream>
+using namespace std;
 void selection_sort(int A[],int n){ // O(n2)
 
-    for(int i=0;i<n-1;i++){ //n-2 passes
+    for(int i=0;i<n;i++){ //n-2 passes
         int imin = i;//initialize minimum int position var
 
         //run from i+1th position till n-1
@@ -46,14 +47,15 @@ void selection_sort(int A[],int n){ // O(n2)
 
 }
 
-void sort_main(){
+void selection_sort_main(int A[], int n){
 
-    int A[] ={1,2,5,9,3,2,7,5};
-    selection_sort(A,8);
 
-    for(int i=0;i<8;i++){
-        std::cout<<i<<"  "<<endl;
+    selection_sort(A,n);
+
+    for(int i=0;i<n;i++){
+        std::cout<<A[i]<<"  ";
     }
+    cout<<" "<<endl;
 
 
 }

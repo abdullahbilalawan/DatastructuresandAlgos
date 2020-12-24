@@ -12,59 +12,41 @@ using namespace std;
 
 
 
-void swap(int x,int y){
-
-
-    int temp =x;
-    x=y;
-    y=temp;
-}
-
-int partition(int* A,int start,int end){
-
-    //choose the last element as  pivot
-
-    int pivot = A[end];
-    int partition_index = start;
-
-
-    for(int i =start;i<end;i++){
-        if(A[i]<pivot){
-            swap(A[i],A[partition_index]);
-            partition_index++;
+int partition(int *a, int m, int n)
+{
+    int i,j,pindex,pivot;
+    pindex = m;
+    pivot = a[n];
+    for(i=m;i<n;i++)
+    {
+        if(a[i] <= pivot)
+        {
+            swap(a[pindex], a[i]);
+            pindex++;
         }
-
     }
-
-    swap(A[partition_index],A[end]);
-    return partition_index;
-
+    swap(a[pindex], a[n]);
+    return pindex;
 }
 
-void quicksort(int *A, int start, int end){
-
-    if(start<end){
-
-        int partition_index = partition(A,start,end);
-        quicksort(A,start,partition_index-1);
-        quicksort(A,partition_index+1,end);
-
+int quicksort(int *a, int m, int n)
+{
+    int index;
+    if(m>=n)
+        return 0;
+    {
+        index = partition(a,m,n);
+        quicksort(a, m, index-1);
+        quicksort(a, index+1, n);
     }
-
-
-
-
-
 }
 
-void quick_sort_main(){
-
-    int A[] ={1,2,5,9,3,2,7,5};
-    quicksort(A,0,7);
-
-    for(int i=0;i<8;i++){
-        std::cout<<A[i]<<"  "<<endl;
-    }
-
-
+int quick_sort_main()
+{
+    int a[] = {7,2,1,6,8,5,3,4};
+    int i;
+    quicksort(a,0,7);
+    cout <<" Sorting" << endl;
+    for(i=0;i<8;i++)
+        cout <<a[i] <<endl;
 }

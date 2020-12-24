@@ -40,13 +40,16 @@ void insertion_slot(int A[],int n){
 }
 //Big o of N
 
-void insertion_slot_main(){
 
-    int A[] ={1,2,5,9,3,2,7,5};
-    insertion_slot(A,8);
+void insertion_sort_main(int A[], int n){
 
-    for(int i=0;i<8;i++){
-        std::cout<<i<<"  "<<endl;
+
+    insertion_slot(A,n);
+
+    for(int i=0;i<n;i++){
+        std::cout<<A[i]<<"  ";
     }
+    cout<<" "<<endl;
+
 
 }

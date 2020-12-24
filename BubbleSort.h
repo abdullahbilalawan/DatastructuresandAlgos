@@ -58,14 +58,16 @@ void simple_bubble_sort(int X[],int n){
 }
 
 
-void bubble_sort_main(){
+void bubble_sort_main(int A[], int n){
 
-    int A[] ={1,2,5,9,3,2,7,5};
-    simple_bubble_sort(A,8);
 
-    for(int i=0;i<8;i++){
-        std::cout<<A[i]<<"  "<<endl;
+    simple_bubble_sort(A,n);
+
+    for(int i=0;i<n;i++){
+        std::cout<<A[i]<<"  ";
     }
+
+    cout<<" "<<endl;
 
 
 }

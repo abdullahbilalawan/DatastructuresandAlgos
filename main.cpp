@@ -1,12 +1,16 @@
 #include <iostream>
 
 
-#include "lab7.h"
+#include "lab09.h"
 
 int main(){
 
 
-    interface();
+
+    lab9_runner();
+
+
+
 
 
 
