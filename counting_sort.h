@@ -50,7 +50,7 @@ void counting_sort(int *A,int n,int range){
 
 void counting_sort_main(){
     int A[] ={1,2,5,9,3,2,7,5};
-    counting_sort(A,7,9);
+    counting_sort(A,9,9);
 
     for(int i=0;i<8;i++){
         cout<<A[i]<<"  "<<endl;
